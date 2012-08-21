@@ -42,13 +42,6 @@
       <version>2.0.0.GA</version>
       <optional>true</optional>
     </dependency>
-    <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>tools</artifactId>
-      <version>1.7.0</version>
-      <scope>system</scope>
-      <systemPath>${java.home}/../lib/tools.jar</systemPath>
-    </dependency>
     <!-- Do no remove the following two dependencies because they are required by hibernate-core which is
          used as docletArtifact and the javadoc plugin can't resolve them because it doesn't use our own
          repo list. It only uses central and they are not there. So we depend on them here so that Maven
@@ -73,15 +66,17 @@
     <profile>
       <id>default-tools.jar</id>
       <activation>
-        <property>
-          <name>java.vendor</name>
-          <value>Sun Microsystems Inc.</value>
-        </property>
+        <file>
+          <exists>${java.home}/../lib/tools.jar</exists>
+        </file>
       </activation>
       <dependencies>
         <dependency>
-          <groupId>com.sun</groupId>
+          <groupId>java</groupId>
           <artifactId>tools</artifactId>
+          <version>${java.runtime.version}</version>
+          <scope>system</scope>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
         </dependency>
       </dependencies>
     </profile>

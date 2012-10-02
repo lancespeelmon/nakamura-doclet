@@ -8,7 +8,7 @@
   
   <name>Sakai JAX-Doclet for jax-rs and RESTeasy</name>
   <artifactId>org.sakaiproject.nakamura.jax-doclets</artifactId>
-  <version>0.10.0-rsmart-SNAPSHOT</version>
+  <version>0.10.0-rsmart</version>
   <organization>
     <name>rSmart</name>
     <url>http://www.rsmart.com</url>
